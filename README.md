@@ -1,5 +1,4 @@
 # Product Tracker
-
-Source code is placed into private repo.
-Releases
+Source code is placed into private repo
+View releases
 
