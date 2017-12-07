@@ -50,9 +50,19 @@ git add .
 # Step: 04 #
 ############
 
-echo 
-git commit -m "[ Done - update ]  version (alpha-1.0.0)"
-echo [ Done - commit ]
+echo [ Done ]  Committing...
+echo
+#############################
+## follow up simple commit ##
+#############################
+## Rename pre_filename.md to new_filename.md
+## Create file.ext
+## Update file.ext
+## Delete file.ext
+## Solved issues
+## Default: Commit skipped|forgotten
+
+git commit -m "Solved issues for v1.2.0"
 
 ############
 # Step: 05 #
@@ -72,7 +82,7 @@ git remote -v
 # Change your remote's URL from SSH to HTTPS with the git remote set-url command.
 echo
 echo [ Done ]  Updating remote URL.
-git remote set-url origin https://github.com/Sakib-Rahman-Bangladesh/DevOps-002-ProductTracker
+git remote set-url origin https://github.com/Sakib-Rahman-Bangladesh/product-tracker
 ############
 # Step: 07 #
 ############
@@ -91,4 +101,4 @@ echo
 echo 08. Pushing local codebase to remote repo...Repo-to-repo collaboration: git push
 echo
 git push origin master
-git push --all -f https://github.com/Sakib-Rahman-Bangladesh/DevOps-002-ProductTracker
+git push --all -f https://github.com/Sakib-Rahman-Bangladesh/product-tracker
