@@ -62,7 +62,7 @@ echo
 ## Solved issues
 ## Default: Commit skipped|forgotten
 
-git commit -m "Solved issues for v1.2.0"
+git commit -m "New release v1.4.0"
 
 ############
 # Step: 05 #
