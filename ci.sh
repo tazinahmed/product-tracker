@@ -59,10 +59,11 @@ echo
 ## Create file.ext
 ## Update file.ext
 ## Delete file.ext
+## Release v1.5.0
 ## Solved issues
 ## Default: Commit skipped|forgotten
 
-git commit -m "New release v1.4.0"
+git commit -m "Release v1.5.0"
 
 ############
 # Step: 05 #
