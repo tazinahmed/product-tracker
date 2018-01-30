@@ -11,6 +11,7 @@
      - define problem: by observation and interview what info is needed by whom, when, where and why
      - prepare a short report: **feasibility report**, **project plan**
 2. System|requirement analysis
+   - Study depth on previous sys. and determine what the new system do
    - Listen to customers | users demand
    - Write storybook, usecases, sequence diagram
    - Sequencial flow chart
