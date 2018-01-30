@@ -2,7 +2,11 @@
 **Continuous Intregration & Implementation** is going on through business demands and technology (impl of science) 
 
 What I learnt (science & technology) from different scholars, professors, instructors ...etc those are trying to add here. 
-Basically, I like to implement technology first (as software touches every corner of our lives and we solve problem from land|agri to space|astro. through software) afterthen try to feel the beauty|power of science.
+Basically, I like to implement technology first as software touches every corner of our lives where we solve problems from land to space means from agriculture to astronomy through software and afterthen try to feel the beauty|power of science. 
+How to play with science!!! through my high level emotion and curiosity.
+
+Level of thinking!!! 
+Way of thinking!!!
 
 # Software development lifecycle (SDLC)
 **Instructor:** [Sadia Sharmin](https://www.researchgate.net/profile/Sadia_Sharmin3) madam, **Course:** Software Engineering (CSE411) 
