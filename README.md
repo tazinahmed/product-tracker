@@ -4,7 +4,9 @@ View details from [Release notes](https://github.com/Sakib-Rahman-Bangladesh/pro
 
 # SDLC: Software development lifecycle
 **Course:** Software Engineering (CSE411)
+
 **Implementation:** Sci vs Tech 
+
 **Instructed by:** [Sadia Sharmin](https://www.researchgate.net/profile/Sadia_Sharmin3) madam
 
 What I learnt(science & technology) from my software engineering course, instucted by [Sadia Sharmin](https://www.researchgate.net/profile/Sadia_Sharmin3) madam, those are trying to add here. 
