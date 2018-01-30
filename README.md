@@ -43,8 +43,7 @@ Basically, I like to implement technology first (as software touches every corne
 
 **Instructed by:** [Rashedul Amin Tuhin](https://www.linkedin.com/in/rashedul-amin-tuhin-76b63151) sir
 
-**TODO:** Implement privacy policy based on CSE498 course knowledge.
-[Privacy policy](https://github.com/Sakib-Rahman-Bangladesh/product-tracker/blob/master/privacy_policy.md) - not ready
+**TODO:** Trying to implement privacy policy based on CSE498 course knowledge. [Privacy policy](https://github.com/Sakib-Rahman-Bangladesh/product-tracker/blob/master/privacy_policy.md) - not ready
 
 Source code is placed into private repo. Join community to get source code. View details from [Release notes](https://github.com/Sakib-Rahman-Bangladesh/product-tracker/releases)
 
