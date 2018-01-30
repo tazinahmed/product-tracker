@@ -5,7 +5,7 @@ What I learnt (science & technology) from different scholars, professors, instru
 Basically, I like to implement technology first (as software touches every corner of our lives and we solve problem from land|agri to space|astro. through software) afterthen try to feel the beauty|power of science.
 
 # Software development lifecycle (SDLC)
-**Instructor** [Sadia Sharmin](https://www.researchgate.net/profile/Sadia_Sharmin3) madam, **Course:** Software Engineering (CSE411) 
+**Instructor:** [Sadia Sharmin](https://www.researchgate.net/profile/Sadia_Sharmin3) madam, **Course:** Software Engineering (CSE411) 
 
 1. Preliminary investigation
    - Determine if a new system is needed
