@@ -3,6 +3,10 @@ Source code is placed into private repo. Join community to get source code.
 View details from [Release notes](https://github.com/Sakib-Rahman-Bangladesh/product-tracker/releases)
 
 # SDLC: Software development lifecycle
+**Course:** Software Engineering (CSE411)
+**Implementation:** Sci vs Tech 
+**Instructed by:** [Sadia Sharmin](https://www.researchgate.net/profile/Sadia_Sharmin3) madam
+
 What I learnt(science & technology) from my software engineering course, instucted by [Sadia Sharmin](https://www.researchgate.net/profile/Sadia_Sharmin3) madam, those are trying to add here. 
 Basically, I like to implement technology first (as software touches every corner of our lives and we solve problem from land|agri to space|astro. through software) afterthen try to feel the beauty|power of science and its suitable time for me to add this science to all of my projects as i have been eagerly waiting for that.
 
