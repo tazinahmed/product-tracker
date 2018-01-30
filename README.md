@@ -1,4 +1,4 @@
-# To get location based any products (Android|Drone)
+# To get location based any products (Android|iOS|Drone)
 **Continuous Intregration & Implementation** is going on through business demands and technology (impl of science) 
 
 What I learnt (science & technology) from different scholars, professors, instructors ...etc those are trying to add here. 
