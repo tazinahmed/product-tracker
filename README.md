@@ -5,7 +5,7 @@ View details from [Release notes](https://github.com/Sakib-Rahman-Bangladesh/pro
 # Software development lifecycle (SDLC)
 **Course:** Software Engineering (CSE411)
 
-**Implementation:** Sci vs Tech 
+**Continuous Intregration & Implementation:** Sci vs Tech 
 
 **Instructed by:** [Sadia Sharmin](https://www.researchgate.net/profile/Sadia_Sharmin3) madam
 
