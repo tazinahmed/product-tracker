@@ -1,9 +1,6 @@
 # Product Tracker: To get your location based products (Android app)
 **Continuous Intregration & Implementation** is going on through business demands and technology (impl of science) 
 
-Source code is placed into private repo. Join community to get source code. 
-View details from [Release notes](https://github.com/Sakib-Rahman-Bangladesh/product-tracker/releases)
-
 # Software development lifecycle (SDLC)
 **Course:** Software Engineering (CSE411)
 
@@ -42,5 +39,8 @@ Basically, I like to implement technology first (as software touches every corne
    - Periodic evaluation & update
 
 ## Privacy Policy ##
-[View](https://github.com/Sakib-Rahman-Bangladesh/product-tracker/blob/master/privacy_policy.md) - not ready
+Source code is placed into private repo. Join community to get source code. View details from [Release notes](https://github.com/Sakib-Rahman-Bangladesh/product-tracker/releases)
 
+[Privacy policy](https://github.com/Sakib-Rahman-Bangladesh/product-tracker/blob/master/privacy_policy.md) - not ready
+
+**TODO:** Implement privacy policy based on CSE498 course knowledge.
