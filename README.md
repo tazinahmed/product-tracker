@@ -5,9 +5,7 @@ What I learnt (science & technology) from different scholars, professors, instru
 Basically, I like to implement technology first (as software touches every corner of our lives and we solve problem from land|agri to space|astro. through software) afterthen try to feel the beauty|power of science.
 
 # Software development lifecycle (SDLC)
-**Course:** Software Engineering (CSE411)
-
-**Instructed by:** [Sadia Sharmin](https://www.researchgate.net/profile/Sadia_Sharmin3) madam
+**Instructor** [Sadia Sharmin](https://www.researchgate.net/profile/Sadia_Sharmin3) madam, **Course:** Software Engineering (CSE411) 
 
 1. Preliminary investigation
    - Determine if a new system is needed
@@ -38,9 +36,8 @@ Basically, I like to implement technology first (as software touches every corne
    - Periodic evaluation & update
 
 ## Privacy Policy ##
-**Course:** Social & Professional Issues in Computing (CSE498)
+**Instructor:** [Rashedul Amin Tuhin](https://www.linkedin.com/in/rashedul-amin-tuhin-76b63151) sir, **Course:** Social & Professional Issues in Computing (CSE498) 
 
-**Instructed by:** [Rashedul Amin Tuhin](https://www.linkedin.com/in/rashedul-amin-tuhin-76b63151) sir
 
 **TODO:** Trying to implement privacy policy based on CSE498 course knowledge. [Privacy policy](https://github.com/Sakib-Rahman-Bangladesh/product-tracker/blob/master/privacy_policy.md) - not ready
 
