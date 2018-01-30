@@ -1,11 +1,10 @@
 # Product Tracker
+**Continuous Intregration & Implementation:** Sci vs Tech 
 Source code is placed into private repo. Join community to get source code. 
 View details from [Release notes](https://github.com/Sakib-Rahman-Bangladesh/product-tracker/releases)
 
 # Software development lifecycle (SDLC)
 **Course:** Software Engineering (CSE411)
-
-**Continuous Intregration & Implementation:** Sci vs Tech 
 
 **Instructed by:** [Sadia Sharmin](https://www.researchgate.net/profile/Sadia_Sharmin3) madam
 
