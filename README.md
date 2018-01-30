@@ -14,8 +14,8 @@ Basically, I like to implement technology first (as software touches every corne
    - Determine if a new system is needed
    - Three primary tasks:
      - suggest alternative solution
-     - define problem: by observation and interview what info is needed by whom, when, where and why?
-     - prepare a short report: feasibility report, project plan
+     - define problem: by observation and interview what info is needed by whom, when, where and why
+     - prepare a short report: **feasibility report**, **project plan**
 2. System|requirement analysis
    - Listen to customers | users demand
    - Write storybook, usecases, sequence diagram
