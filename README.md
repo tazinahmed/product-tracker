@@ -1,4 +1,4 @@
-# Product Tracker: To get your location based products (Android app)
+# Product Tracker: To get your location based products
 **Continuous Intregration & Implementation:** Sci vs Tech 
 
 Source code is placed into private repo. Join community to get source code. 
