@@ -1,4 +1,4 @@
-# Product Tracker: To get your location based products (Android app)
+# To get your location based products (Android app)
 **Continuous Intregration & Implementation** is going on through business demands and technology (impl of science) 
 
 # Software development lifecycle (SDLC)
