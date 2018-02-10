@@ -1,6 +1,8 @@
 # To get location based products (Android|iOS|Drone)
 **Continuous Intregration & Implementation** is going on through business demands and technology (impl. of science) 
 
+TODO: Work through agile based scrum technique: follow [Literate Devops with Emacs](https://www.youtube.com/watch?v=dljNabciEGg)
+
 ## Privacy Policy ##
 **Instructor:** [Rashedul Amin Tuhin](https://www.linkedin.com/in/rashedul-amin-tuhin-76b63151) sir, **Course:** Social & Professional Issues in Computing (CSE498) 
 
