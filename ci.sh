@@ -64,7 +64,7 @@ echo
 ## Default: Commit skipped|forgotten
 ## cr2018.Mar14.1.7.0
 
-git commit -m "Open-source"
+git commit -m "Add MakeUpdate"
 
 ############
 # Step: 05 #
