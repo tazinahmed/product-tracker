@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_margin="12dp"
+        android:id="@+id/firstRow"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/upLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!--column 1: shop image-->
+            <ImageView
+                android:id="@+id/ivShopImage"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="3dp"
+                android:src="@drawable/icon" />
+
+            <!--column 2: shop summary-->
+            <LinearLayout
+                android:layout_marginLeft="8dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.8"
+                android:orientation="vertical">
+
+                <!-- Title color
+                black 87% https://material.io/guidelines/style/typography.html#typography-other-typographic-guidelines
+                get code: https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4-->
+                <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/tvShopName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sopno Argura"
+                    android:textColor="@color/colorBlack87Percent"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_marginTop="2dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RatingBar
+                        android:id="@+id/ratingBar"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:numStars="3"
+                        android:rating="2.4"
+                        android:stepSize="1.0" />
+
+                    <TextView
+                        android:id="@+id/tvRatingValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvShopName"
+                        android:text="2.6"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:id="@+id/ivRatingUserIcon"
+                        android:layout_width="10dp"
+                        android:layout_height="13dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="2dp"
+                        android:src="@drawable/rating_user_icon" />
+
+                    <TextView
+                        android:id="@+id/tvNumOfReview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="33038"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--column 3: control order-->
+            <LinearLayout
+                android:layout_marginTop="8dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/llTickQuantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/ivTickIcon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:onClick="addOrder"
+                        android:src="@drawable/tick_box_11" />
+
+                    <TextView
+                        android:id="@+id/tvQuantity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="3 Items"
+                        android:textColor="#008000"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llEditDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/ivEditIcon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/edit_12" />
+
+                    <ImageView
+                        android:id="@+id/ivDeleteIcon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="3dp"
+                        android:src="@drawable/cancel_12" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- (TextSize 14sp) body | -->
+        <TextView
+            android:padding="2dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorBlack87Percent"
+            android:id="@+id/tvAboutProduct"
+            android:textSize="14sp"
+            android:layout_below="@+id/upLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Product related text will be given here by producer. We are serving awesome foods... etc"/>
+
+    </LinearLayout>
+
+
+
+    <!-- Second row
+        android:layout_height="200dp"-->
+    <ImageView
+        android:id="@+id/ivProduct"
+        android:src="@drawable/image1"
+        android:layout_below="@+id/firstRow"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <LinearLayout
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="12dp"
+        android:id="@+id/rowThree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivProduct"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:padding="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textColor="@color/colorBlack87Percent"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Sold 1.1k/m | 50/d" />
+
+            <TextView
+                android:textColor="@color/colorBlack87Percent"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4.4K Comments 23K Shares 1M Views" />
+        </LinearLayout>
+
+        <View
+            android:padding="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorD4" />
+
+
+        <LinearLayout
+            android:padding="2dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:id="@+id/llCustomerOder"
+            android:layout_weight="4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:padding="2dp"
+                    android:id="@+id/ivID0"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/distance_sort_2" />
+
+                <TextView
+
+                    android:padding="2dp"
+                    android:textSize="13sp"
+                    android:id="@+id/tvLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Location" />
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:padding="2dp"
+                    android:id="@+id/ivID1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@mipmap/ic_access_time_black_24dp" />
+
+                <TextView
+
+                    android:padding="2dp"
+                    android:textSize="13sp"
+                    android:id="@+id/tvServiceTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Time" />
+            </LinearLayout>
+
+
+            <LinearLayout
+
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:padding="2dp"
+                    android:id="@+id/ivID2"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/dollar_2" />
+
+                <TextView
+
+                    android:padding="2dp"
+                    android:gravity="center"
+                    android:textSize="13sp"
+                    android:id="@+id/tvPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Price" />
+            </LinearLayout>
+
+
+            <LinearLayout
+
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:padding="2dp"
+                    android:id="@+id/ivID3"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@mipmap/ic_phone_black_24dp" />
+
+                <TextView
+
+                    android:padding="2dp"
+                    android:gravity="center"
+                    android:textSize="13sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CALL" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    <View
+        android:layout_below="@+id/rowThree"
+        android:background="@color/colorD4"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"/>
+
+</RelativeLayout>

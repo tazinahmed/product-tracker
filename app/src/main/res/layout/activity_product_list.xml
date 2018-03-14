@@ -1,0 +1,104 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="playlagom.producttracker.ProductListActivity">
+
+    <LinearLayout
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/sortID">
+
+        <LinearLayout
+            android:padding="3dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="6dp">
+
+            <ImageView
+                android:layout_marginLeft="22dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/ic_arrow_drop_up_black_24dp"/>
+
+            <ImageView
+                android:layout_marginLeft="23dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:onClick="distance"
+                android:src="@drawable/distance_sort_2"/>
+
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:layout_height="25dp"
+                android:layout_width="25dp"
+                android:onClick="price"
+                android:src="@drawable/dollar_2"/>
+
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:onClick="rating"
+                android:src="@drawable/rating_sort_2"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:padding="3dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textSize="14sp"
+                android:onClick="editUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="2 KM"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="3dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:onClick="addDistance"
+                    android:src="@drawable/plus_1"/>
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:onClick="subDistance"
+                    android:src="@drawable/minus_1"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:id="@+id/horizontalLine"
+        android:layout_below="@+id/sortID"
+        android:background="@color/colorD4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvProductList"
+        android:layout_below = "@+id/horizontalLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+
+</RelativeLayout>

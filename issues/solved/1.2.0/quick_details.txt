@@ -1,8 +1,0 @@
-issues rised during releasing product-tracker: 1.2.0
-
-These challenges faced when start developing with android studio 3.0.1
--- same version problem as new apk exists inside release folder and i was uploading from the app folders apk
--- Fully shadowed APK as Retain clicked
-
-These challenges gave me a lots of pain. Cause for directory problem there was no community support and i solved this by my debugging skills. Starting a new fresh project with same package name.
-I wasted high time with generate asigned apk.

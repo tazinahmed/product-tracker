@@ -62,8 +62,9 @@ echo
 ## Release v1.5.0
 ## Solved issues
 ## Default: Commit skipped|forgotten
+## cr2018.Mar14.1.7.0
 
-git commit -m "Released v1.6.3 | Issues solved"
+git commit -m "Open-source"
 
 ############
 # Step: 05 #
