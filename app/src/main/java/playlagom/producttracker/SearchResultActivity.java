@@ -1,5 +1,6 @@
 package playlagom.producttracker;
 
+import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -16,14 +17,23 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import java.io.IOException;
 import java.util.List;
 
-public class SearchResultActivity  extends FragmentActivity implements OnMapReadyCallback, Communicator{
+import playlagom.producttracker.libs.Init;
+
+public class SearchResultActivity  extends FragmentActivity implements
+        OnMapReadyCallback,
+        Communicator,
+        GoogleMap.OnCameraMoveListener {
+
     private GoogleMap mMap;
     LocationManager locationManager;
+    private int minTime = 1000;
+    private float minDistance = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +63,7 @@ public class SearchResultActivity  extends FragmentActivity implements OnMapRead
 
         // check if location provider is enable or not
         if (locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
-            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, new LocationListener() {
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, minTime, minDistance, new LocationListener() {
                 @Override
                 public void onLocationChanged(Location location) {
                     double latitude = location.getLatitude();
@@ -69,9 +79,9 @@ public class SearchResultActivity  extends FragmentActivity implements OnMapRead
                         String str = "phone: " + addressList.get(0).getPhone() + ", ";
                         str += addressList.get(0).getLocality() + ",";
                         str += addressList.get(0).getAddressLine(0) + "";
-
-                        mMap.addMarker(new MarkerOptions().position(latLng).title(str));
-                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16.2f));
+                        //                        Init.runMap(SearchResultActivity.this, mMap, latLng, str);
+                        mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)).position(latLng).title(str));
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, lastZoomValue));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -93,7 +103,7 @@ public class SearchResultActivity  extends FragmentActivity implements OnMapRead
                 }
             });
         } else if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, new LocationListener() {
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, minTime, minDistance, new LocationListener() {
                 @Override
                 public void onLocationChanged(Location location) {
                     double latitude = location.getLatitude();
@@ -108,9 +118,9 @@ public class SearchResultActivity  extends FragmentActivity implements OnMapRead
                         // show location name
                         String str = addressList.get(0).getLocality() + ",";
                         str += addressList.get(0).getCountryName();
-
-                        mMap.addMarker(new MarkerOptions().position(latLng).title(str));
-                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15.2f));
+//                        Init.runMap(SearchResultActivity.this, mMap, latLng, str);
+                        mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)).position(latLng).title(str));
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, lastZoomValue));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -143,13 +153,18 @@ public class SearchResultActivity  extends FragmentActivity implements OnMapRead
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+    @SuppressLint("MissingPermission")
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.setMyLocationEnabled(true);
+        mMap.setOnCameraMoveListener(this);
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(18));
+    }
 
-        // Add a marker in Sydney and move the camera
-//        LatLng sydney = new LatLng(-34, 151);
-//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+    private float lastZoomValue = 0;
+    @Override
+    public void onCameraMove() {
+        lastZoomValue = mMap.getCameraPosition().zoom;
     }
 }

@@ -11,49 +11,46 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.os.Build;
-import android.os.Handler;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.PendingResult;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 
 import java.io.IOException;
 import java.util.List;
 
 import playlagom.producttracker.auth.LoginActivity;
+import playlagom.producttracker.libs.Init;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     LocationManager locationManager;
-    FirebaseAuth firebaseAuth;
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
+    FirebaseAuth firebaseAuth;
+    private DatabaseReference databaseReference;
+
 
     private void initMap() {
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -87,8 +84,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     String str = addressList.get(0).getLocality() + ",";
                     str += addressList.get(0).getCountryName();
 
-                    mMap.addMarker(new MarkerOptions().position(latLng).title(str));
-                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15.2f));
+                    Init.runMap(MapsActivity.this, mMap, latLng, str);
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -167,14 +164,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         ivAssistant.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                Toast.makeText(getApplicationContext(), "Hey! This is your personal assistant to help you. (UNDER CONSTRUCTION)", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Hey Fahad! This is your personal assistant to help you. (UNDER CONSTRUCTION)", Toast.LENGTH_LONG).show();
                 return false;
             }
         });
 
         // Get Location Manager and check for GPS & Network location services
         LocationManager lm = (LocationManager) getSystemService(LOCATION_SERVICE);
-        if(!lm.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
+        if (!lm.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
                 !lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
             // Build the alert dialog
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -228,8 +225,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             str += addressList.get(0).getLocality() + ",";
                             str += addressList.get(0).getAddressLine(0) + "";
 
-                            mMap.addMarker(new MarkerOptions().position(latLng).title(str));
-                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16.2f));
+                            Init.runMap(MapsActivity.this, mMap, latLng, str);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -280,8 +276,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             String str = addressList.get(0).getLocality() + ",";
                             str += addressList.get(0).getCountryName();
 
-                            mMap.addMarker(new MarkerOptions().position(latLng).title(str));
-                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15.2f));
+                            Init.runMap(MapsActivity.this, mMap, latLng, str);
+
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -306,6 +302,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -318,10 +315,5 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
-        // Add a marker in Sydney and move the camera
-//        LatLng sydney = new LatLng(-34, 151);
-//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 }

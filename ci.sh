@@ -31,7 +31,7 @@ git config --global user.name "Sakib Rahman"
 ############
 # Step: 02 #
 ############
- 
+
 echo [ Done ]  Initializing a new Git repo for this project.
 echo
 git init
@@ -62,9 +62,9 @@ echo
 ## Release v1.5.0
 ## Solved issues
 ## Default: Commit skipped|forgotten
-## cr2018.Mar14.1.7.0
+## 📗 cr2018.Mar14.1.7.0
 
-git commit -m "Add MakeUpdate"
+git commit -m "Change detected, uploading..."
 
 ############
 # Step: 05 #
