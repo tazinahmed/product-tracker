@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 ##################################################
 ### Script : ci.sh (14-10-2017)                ###
 ### CI     : Continious Integration            ###
@@ -64,7 +65,7 @@ echo
 ## Default: Commit skipped|forgotten
 ## 📗 cr2018.Mar14.1.7.0
 
-git commit -m "Change detected, uploading..."
+git commit -m "UPLOAD CustomInfoWindow code"
 
 ############
 # Step: 05 #

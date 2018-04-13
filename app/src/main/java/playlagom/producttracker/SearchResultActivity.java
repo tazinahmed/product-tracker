@@ -34,7 +34,7 @@ public class SearchResultActivity  extends FragmentActivity implements
     LocationManager locationManager;
     private int minTime = 1000;
     private float minDistance = 1;
-
+    private int counter = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,7 +80,8 @@ public class SearchResultActivity  extends FragmentActivity implements
                         str += addressList.get(0).getLocality() + ",";
                         str += addressList.get(0).getAddressLine(0) + "";
                         //                        Init.runMap(SearchResultActivity.this, mMap, latLng, str);
-                        mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)).position(latLng).title(str));
+
+                        mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)).position(latLng).title("My location " + counter++)).showInfoWindow();
                         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, lastZoomValue));
                     } catch (IOException e) {
                         e.printStackTrace();

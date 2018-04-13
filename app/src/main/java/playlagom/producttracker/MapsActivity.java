@@ -26,7 +26,9 @@ import android.widget.Toast;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 
@@ -43,14 +45,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
-
+    double latitude = 0;
+    double longitude = 0;
 
     private void initMap() {
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -64,8 +66,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             ActivityCompat.requestPermissions(this,
                     new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
                     PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
-
-
             return;
         }
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, new LocationListener() {
@@ -225,7 +225,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             str += addressList.get(0).getLocality() + ",";
                             str += addressList.get(0).getAddressLine(0) + "";
 
-                            Init.runMap(MapsActivity.this, mMap, latLng, str);
+//                            Init.runMap(MapsActivity.this, mMap, latLng, str);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -276,7 +276,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             String str = addressList.get(0).getLocality() + ",";
                             str += addressList.get(0).getCountryName();
 
-                            Init.runMap(MapsActivity.this, mMap, latLng, str);
+//                            Init.runMap(MapsActivity.this, mMap, latLng, str);
 
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -315,5 +315,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        mMap.getUiSettings().setZoomControlsEnabled(true);
+
+        String title = "Name";
+        String subTitle = "my \nlocation";
+
+        //Marker
+        MarkerOptions markerOpt = new MarkerOptions();
+        markerOpt.position(new LatLng(Double.valueOf(latitude), Double.valueOf(longitude)))
+                .title(title)
+                .snippet(subTitle);
+
+        //Set Custom InfoWindow Adapter
+        CustomInfoWindowAdapter adapter = new CustomInfoWindowAdapter(MapsActivity.this);
+        mMap.setInfoWindowAdapter(adapter);
+
+        mMap.addMarker(markerOpt).showInfoWindow();
     }
 }

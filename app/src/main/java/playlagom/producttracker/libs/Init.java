@@ -14,7 +14,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import playlagom.producttracker.R;
 
 /**
- * Created by User on 12/19/2017.
+ * Created by Md. Sakibur Rahman on 12/19/2017.
  */
 
 public class Init {
