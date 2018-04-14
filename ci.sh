@@ -65,7 +65,7 @@ echo
 ## Default: Commit skipped|forgotten
 ## 📗 cr2018.Mar14.1.7.0
 
-git commit -m "CREATE todo.md"
+git commit -m "UPLOAD v1.7.0 updates, RENAME todo.md to ideas.md"
 
 ############
 # Step: 05 #

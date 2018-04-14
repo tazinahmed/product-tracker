@@ -35,6 +35,10 @@ public class SearchResultActivity  extends FragmentActivity implements
     private int minTime = 1000;
     private float minDistance = 1;
     private int counter = 1;
+
+    double latitude = 0;
+    double longitude = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,7 +85,7 @@ public class SearchResultActivity  extends FragmentActivity implements
                         str += addressList.get(0).getAddressLine(0) + "";
                         //                        Init.runMap(SearchResultActivity.this, mMap, latLng, str);
 
-                        mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)).position(latLng).title("My location " + counter++)).showInfoWindow();
+                        mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)).position(latLng).title(counter++ + "m" ).snippet("Aftabnagar")).showInfoWindow();
                         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, lastZoomValue));
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -161,6 +165,23 @@ public class SearchResultActivity  extends FragmentActivity implements
         mMap.setMyLocationEnabled(true);
         mMap.setOnCameraMoveListener(this);
         mMap.animateCamera(CameraUpdateFactory.zoomTo(18));
+
+
+        String title = "Time";
+//        String subTitle = "Aftabnagar \nlocation";
+        String subTitle = "Aftabnagar";
+
+        //Marker
+        MarkerOptions markerOpt = new MarkerOptions();
+        markerOpt.position(new LatLng(Double.valueOf(latitude), Double.valueOf(longitude)))
+                .title(title)
+                .snippet(subTitle);
+
+        //Set Custom InfoWindow Adapter
+        CustomInfoWindowAdapterUber adapter = new CustomInfoWindowAdapterUber(SearchResultActivity.this);
+        mMap.setInfoWindowAdapter(adapter);
+
+        mMap.addMarker(markerOpt).showInfoWindow();
     }
 
     private float lastZoomValue = 0;

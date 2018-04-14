@@ -319,8 +319,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mMap.getUiSettings().setZoomControlsEnabled(true);
 
-        String title = "Name";
-        String subTitle = "my \nlocation";
+        String title = "Sakib";
+//        String subTitle = "Aftabnagar \nlocation";
+        String subTitle = "Aftabnagar";
 
         //Marker
         MarkerOptions markerOpt = new MarkerOptions();
