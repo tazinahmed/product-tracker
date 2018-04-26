@@ -1,6 +1,7 @@
 package playlagom.producttracker;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -85,7 +86,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     str += addressList.get(0).getCountryName();
 
                     Init.runMap(MapsActivity.this, mMap, latLng, str);
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -312,11 +312,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+    @SuppressLint("MissingPermission")
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+//        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mMap.getUiSettings().setZoomControlsEnabled(true);
 
         String title = "Sakib";
@@ -334,5 +335,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setInfoWindowAdapter(adapter);
 
         mMap.addMarker(markerOpt).showInfoWindow();
+
+        // TODO: 4/27/2018
+        // SUPPORT: https://developers.google.com/maps/documentation/android-api/current-place-tutorial
+        mMap.setMyLocationEnabled(true);
+        mMap.getUiSettings().setMyLocationButtonEnabled(true);
     }
 }

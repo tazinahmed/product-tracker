@@ -65,7 +65,11 @@ echo
 ## Default: Commit skipped|forgotten
 ## 📗 cr2018.Mar14.1.7.0
 
-git commit -m "UPLOAD v1.7.0 updates, RENAME todo.md to ideas.md"
+# 2018.Apr26
+## UPLOAD v1.7.0 updates, RENAME todo.md to ideas.md
+## UPLOAD: current location detection + moveCamera
+
+git commit -m "UPLOAD: current location detection + moveCamera"
 
 ############
 # Step: 05 #
