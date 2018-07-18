@@ -92,7 +92,9 @@ git remote -v
 # Change your remote's URL from SSH to HTTPS with the git remote set-url command.
 echo
 echo [ Done ]  Updating remote URL.
+
 git remote set-url origin https://github.com/tanvirnabil/product-tracker
+
 ############
 # Step: 07 #
 ############
@@ -101,7 +103,6 @@ git remote set-url origin https://github.com/tanvirnabil/product-tracker
 echo [ Done ]  Verifying remote URL.
 echo
 git remote -v
-
 
 ############
 # Step: 08 #
