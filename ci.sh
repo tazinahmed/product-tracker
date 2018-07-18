@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+﻿#!/usr/bin/env bash
 ##################################################
 ### Script : ci.sh (14-10-2017)                ###
 ### CI     : Continious Integration            ###
@@ -25,8 +25,8 @@
 
 echo
 echo [ Done ]  Initializing who am I.
-git config --global user.email "sakib.rahman.0000@gmail.com"
-git config --global user.name "Sakib Rahman"
+git config --global user.email "tinewucse@gmail.com"
+git config --global user.name "tanvirnabil"
 
 
 ############
@@ -69,7 +69,10 @@ echo
 ## UPLOAD v1.7.0 updates, RENAME todo.md to ideas.md
 ## UPLOAD: current location detection + moveCamera
 
-git commit -m "UPLOAD: current location detection + moveCamera"
+# 2018.July18
+## created dir tanvir (first commit)
+
+git commit -m "created dir tanvir (first commit)"
 
 ############
 # Step: 05 #
@@ -89,7 +92,9 @@ git remote -v
 # Change your remote's URL from SSH to HTTPS with the git remote set-url command.
 echo
 echo [ Done ]  Updating remote URL.
-git remote set-url origin https://github.com/FreshersRepo/product-tracker
+
+git remote set-url origin https://github.com/tanvirnabil/product-tracker
+
 ############
 # Step: 07 #
 ############
@@ -99,7 +104,6 @@ echo [ Done ]  Verifying remote URL.
 echo
 git remote -v
 
-
 ############
 # Step: 08 #
 ############
@@ -108,4 +112,4 @@ echo
 echo 08. Pushing local codebase to remote repo...Repo-to-repo collaboration: git push
 echo
 git push origin master
-git push --all -f https://github.com/FreshersRepo/product-tracker
+git push --all -f https://github.com/tanvirnabil/product-tracker
