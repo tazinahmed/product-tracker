@@ -25,7 +25,7 @@
 
 echo
 echo [ Done ]  Initializing who am I.
-git config --global user.email "arifcseewu@gmail.com"
+git config --global user.email "ariful117601@gmail.com"
 git config --global user.name "arifcseewu"
 
 
@@ -71,8 +71,9 @@ echo
 
 # 2018.July21
 ## created dir, updated content (first commit)
+## UPDATED email
 
-git commit -m "created dir, updated content (first commit)"
+git commit -m "UPDATED email"
 
 ############
 # Step: 05 #
