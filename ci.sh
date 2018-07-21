@@ -25,8 +25,8 @@
 
 echo
 echo [ Done ]  Initializing who am I.
-git config --global user.email "tinewucse@gmail.com"
-git config --global user.name "tanvirnabil"
+git config --global user.email "arifcseewu@gmail.com"
+git config --global user.name "arifcseewu"
 
 
 ############
@@ -69,10 +69,10 @@ echo
 ## UPLOAD v1.7.0 updates, RENAME todo.md to ideas.md
 ## UPLOAD: current location detection + moveCamera
 
-# 2018.July18
-## created dir tanvir (first commit)
+# 2018.July21
+## created dir, updated content (first commit)
 
-git commit -m "created dir tanvir (first commit)"
+git commit -m "created dir, updated content (first commit)"
 
 ############
 # Step: 05 #
@@ -93,7 +93,7 @@ git remote -v
 echo
 echo [ Done ]  Updating remote URL.
 
-git remote set-url origin https://github.com/tanvirnabil/product-tracker
+git remote set-url origin https://github.com/arifcseewu/product-tracker
 
 ############
 # Step: 07 #
@@ -112,4 +112,4 @@ echo
 echo 08. Pushing local codebase to remote repo...Repo-to-repo collaboration: git push
 echo
 git push origin master
-git push --all -f https://github.com/tanvirnabil/product-tracker
+git push --all -f https://github.com/arifcseewu/product-tracker
