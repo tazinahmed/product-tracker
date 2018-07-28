@@ -72,7 +72,7 @@ echo
 # 2018.July18
 ## created dir tanvir (first commit)
 
-git commit -m "env setup done: hello-world app"
+git commit -m "Toast notification added"
 
 ############
 # Step: 05 #
