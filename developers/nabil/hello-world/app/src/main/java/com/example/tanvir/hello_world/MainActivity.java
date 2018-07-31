@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
         notification.setSmallIcon(R.drawable.android);
         notification.setTicker("This is the ticker");
         notification.setWhen(System.currentTimeMillis());
-        notification.setContentTitle("Here is the title");
-        notification.setContentText("I am the body text of your notification");
+        notification.setContentTitle("Product Tracker");
+        notification.setContentText("You have a notification");
 
         Intent intent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);

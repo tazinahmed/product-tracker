@@ -72,7 +72,7 @@ echo
 # 2018.July18
 ## created dir tanvir (first commit)
 
-git commit -m "Toast notification added"
+git commit -m "Basic Notification Added"
 
 ############
 # Step: 05 #
