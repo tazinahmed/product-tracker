@@ -10,8 +10,8 @@
 
     <Button
         android:id="@+id/btnNotification"
-        android:onClick="onClickBtnNotication"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onClickBtnNotication"
         android:text="Click for notification" />
 </LinearLayout>
