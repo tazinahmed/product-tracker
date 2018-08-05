@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">VivzAnwendung</string>
+    <string name="action_setting">Settings</string>
+    <string name="hello_world">Hello World!</string>
+
+    <string-array name="title">
+        <item>Actities</item>
+        <item>Services</item>
+        <item>Content Providers</item>
+        <item>Intents and Intent Filters</item>
+    </string-array>
+
+    <string-array name="descriptions">
+        <item>Activity is a Java code that supports a screen or UI. In other words, building block of the user interface is the activity</item>
+        <item>A Service is an application component that can perform long-running operations in the background, and it doesn't provide a user interface.</item>
+        <item>A content provider manages access to a central repository of data.</item>
+        <item>An intent filter is defined by its category, action and data filters</item>
+    </string-array>
+</resources>
