@@ -25,8 +25,8 @@
 
 echo
 echo [ Done ]  Initializing who am I.
-git config --global user.email "tinewucse@gmail.com"
-git config --global user.name "tanvirnabil"
+git config --global user.email "ariful117601@gmail.com"
+git config --global user.name "arifcseewu"
 
 
 ############
@@ -65,13 +65,6 @@ echo
 ## Default: Commit skipped|forgotten
 ## 📗 cr2018.Mar14.1.7.0
 
-# 2018.Apr26
-## UPLOAD v1.7.0 updates, RENAME todo.md to ideas.md
-## UPLOAD: current location detection + moveCamera
-
-# 2018.July18
-## created dir tanvir (first commit)
-
 git commit -m "Updated FCM"
 
 ############
@@ -92,7 +85,9 @@ git remote -v
 # Change your remote's URL from SSH to HTTPS with the git remote set-url command.
 echo
 echo [ Done ]  Updating remote URL.
-git remote set-url origin https://github.com/tanvirnabil/product-tracker
+
+git remote set-url origin https://github.com/arifcseewu/product-tracker
+
 ############
 # Step: 07 #
 ############
@@ -102,7 +97,6 @@ echo [ Done ]  Verifying remote URL.
 echo
 git remote -v
 
-
 ############
 # Step: 08 #
 ############
@@ -111,4 +105,4 @@ echo
 echo 08. Pushing local codebase to remote repo...Repo-to-repo collaboration: git push
 echo
 git push origin master
-git push --all -f https://github.com/tanvirnabil/product-tracker
+git push --all -f https://github.com/arifcseewu/product-tracker
