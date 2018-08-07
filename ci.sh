@@ -65,15 +65,7 @@ echo
 ## Default: Commit skipped|forgotten
 ## 📗 cr2018.Mar14.1.7.0
 
-# 2018.Apr26
-## UPLOAD v1.7.0 updates, RENAME todo.md to ideas.md
-## UPLOAD: current location detection + moveCamera
-
-# 2018.July21
-## created dir, updated content (first commit)
-## UPDATED email
-
-git commit -m "UPDATED email"
+git commit -m "Updated FCM"
 
 ############
 # Step: 05 #
