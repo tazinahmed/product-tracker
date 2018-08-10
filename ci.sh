@@ -25,8 +25,8 @@
 
 echo
 echo [ Done ]  Initializing who am I.
-git config --global user.email "sakib.rahman.0000@gmail.com"
-git config --global user.name "Sakib Rahman"
+git config --global user.email "sk375478771@gmail.com"
+git config --global user.name "Tanvir-Aunjum-Sunny"
 
 
 ############
@@ -69,7 +69,7 @@ echo
 ## UPLOAD v1.7.0 updates, RENAME todo.md to ideas.md
 ## UPLOAD: current location detection + moveCamera
 
-git commit -m "UPLOAD: current location detection + moveCamera"
+git commit -m "First commit"
 
 ############
 # Step: 05 #
@@ -89,7 +89,7 @@ git remote -v
 # Change your remote's URL from SSH to HTTPS with the git remote set-url command.
 echo
 echo [ Done ]  Updating remote URL.
-git remote set-url origin https://github.com/Sakib-Rahman-Bangladesh/product-tracker
+git remote set-url origin https://github.com/Tanvir-Aunjum-Sunny/product-tracker
 ############
 # Step: 07 #
 ############
@@ -108,4 +108,4 @@ echo
 echo 08. Pushing local codebase to remote repo...Repo-to-repo collaboration: git push
 echo
 git push origin master
-git push --all -f https://github.com/Sakib-Rahman-Bangladesh/product-tracker
+git push --all -f https://github.com/Tanvir-Aunjum-Sunny/product-tracker
