@@ -36,6 +36,7 @@ import com.google.firebase.database.DatabaseReference;
 import java.io.IOException;
 import java.util.List;
 
+import playlagom.producttracker.auth.AuthLogin;
 import playlagom.producttracker.auth.LoginActivity;
 import playlagom.producttracker.libs.Init;
 
@@ -156,7 +157,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public boolean onTouch(View v, MotionEvent event) {
                 firebaseAuth.signOut();
                 Toast.makeText(getApplicationContext(), "Successfully Logout", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(MapsActivity.this, LoginActivity.class));
+                startActivity(new Intent(MapsActivity.this, AuthLogin.class));
                 finish();
                 return false;
             }
