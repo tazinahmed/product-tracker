@@ -8,13 +8,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 
-import playlagom.producttracker.auth.LoginActivity;
+import playlagom.producttracker.auth.AuthSignUp;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 } finally {
                     Log.d("MainActivity", "=== finally ====");
-                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    Intent intent = new Intent(MainActivity.this, AuthSignUp.class);
                     startActivity(intent);
                     finish();
                 }

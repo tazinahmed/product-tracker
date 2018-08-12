@@ -7,14 +7,14 @@
     tools:context="playlagom.producttracker.auth.LoginActivity">
 
     <TextView
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/etLoginEmail"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="80dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"/>
+        android:layout_above="@+id/etLoginEmail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="78dp"
+        android:text="Login"
+        android:textSize="28sp"
+        android:textStyle="bold" />
 
     <EditText
         android:layout_margin="15dp"

@@ -50,8 +50,10 @@ public class SearchResultActivity  extends FragmentActivity implements
                 .findFragmentById(R.id.mapSearchResult);
         mapFragment.getMapAsync(this);
 
+        String queryKey = getIntent().getStringExtra("queryKey");
+
         Toast.makeText(getApplicationContext(),
-                "Result displaying through Robot | Deep learning (UNDER CONSTRUCTION)", Toast.LENGTH_LONG).show();
+                queryKey + " ...showing by Robot", Toast.LENGTH_LONG).show();
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -83,7 +85,7 @@ public class SearchResultActivity  extends FragmentActivity implements
                         String str = "phone: " + addressList.get(0).getPhone() + ", ";
                         str += addressList.get(0).getLocality() + ",";
                         str += addressList.get(0).getAddressLine(0) + "";
-                        //                        Init.runMap(SearchResultActivity.this, mMap, latLng, str);
+                        // Init.runMap(SearchResultActivity.this, mMap, latLng, str);
 
                         mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)).position(latLng).title(counter++ + "m" ).snippet("Aftabnagar")).showInfoWindow();
                         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, lastZoomValue));
