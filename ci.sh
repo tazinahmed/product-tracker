@@ -64,7 +64,7 @@ echo
 ## Solved issues
 ## Default: Commit skipped|forgotten
 
-git commit -m "RELEASED v1.8.0: AutoComplete search suggestion added (real data)"
+git commit -m "Upload changes"
 
 ############
 # Step: 05 #
