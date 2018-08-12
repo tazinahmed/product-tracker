@@ -2,9 +2,11 @@ package playlagom.producttracker.auth;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -13,7 +15,17 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.squareup.okhttp.Call;
+import com.squareup.okhttp.Callback;
+import com.squareup.okhttp.MediaType;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.Response;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -47,6 +59,7 @@ public class AuthSignUp extends AppCompatActivity implements View.OnClickListene
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    public static android.widget.RelativeLayout RelativeLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +68,12 @@ public class AuthSignUp extends AppCompatActivity implements View.OnClickListene
         getSupportActionBar().hide();
         setContentView(R.layout.activity_auth_sign_up);
 
+        RelativeLayout =  findViewById(R.id.relativeLayout1);
+
         // check internet connection
         if (!isInternetOn()) {
+            showSnackbar();
             Toast.makeText(this, "Please ON your internet", Toast.LENGTH_LONG).show();
-            finish();
         }
         Log.d(TAG, "----onCreate: " + isInternetOn());
 
@@ -87,13 +102,40 @@ public class AuthSignUp extends AppCompatActivity implements View.OnClickListene
     @Override
     public void onClick(View v) {
         if (v == btnSignUp) {
-            registerUser();
+            if(!isInternetOn()){
+                showSnackbar();
+            }else{
+                registerUser();
+            }
         }
         if (v == btnLogin) {
             startActivity(new Intent(AuthSignUp.this, AuthLogin.class));
             finish();
         }
     }
+
+    public void showSnackbar() {
+
+        final Snackbar snackbar = Snackbar
+                .make(RelativeLayout, "No internet connection!", Snackbar.LENGTH_LONG)
+                .setAction("RETRY", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Snackbar snackbar1 = Snackbar.make(RelativeLayout,"Retry Login Using Your Connection Again",Snackbar.LENGTH_SHORT);
+                        snackbar1.show();
+                    }
+                });
+
+        // Changing message text color
+        snackbar.setActionTextColor(Color.RED);
+
+        // Changing action button text color
+        View sbView = snackbar.getView();
+        TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+        textView.setTextColor(Color.WHITE);
+        snackbar.show();
+    }
+
     // Paste this on activity from where you need to check internet status
     public boolean isInternetOn() {
         // get Connectivity Manager object to check connection
@@ -250,4 +292,58 @@ public class AuthSignUp extends AppCompatActivity implements View.OnClickListene
                 });
     }*/
 
+    public static final String SERVER_KEY = "AAAAzSZNbUY:APA91bE-g_vgALMF4u9mqC2rVbPVi_FkiVtXFi3SiK7ya802mWMLUkIxeatHaxTcZfBnQPacCwJUYQoRXSqA6fBF2vJ_zEsfKruxXdxnTYyuKDgB6uVteHJOumJm5-NLYUqRuyZXq4R7";
+    // src: https://stackoverflow.com/questions/39068722/post-ing-json-request-to-fcm-server-isnt-working
+    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+
+    OkHttpClient client = new OkHttpClient();
+    Call post(String url, String json, Callback callback) {
+        RequestBody body = RequestBody.create(JSON, json);
+        Request request = new Request.Builder()
+                .addHeader("Content-Type","application/json")
+                .addHeader("Authorization","key=" + SERVER_KEY)
+                .url(url)
+                .post(body)
+                .build();
+        Call call = client.newCall(request);
+        call.enqueue(callback);
+        return call;
+    }
+
+
+    private void notifyAllPushNotification(String deviceToken) {
+        Log.d(TAG, "sendOnlinePushNotification: data: " + deviceToken);
+
+        try {
+            JSONObject jsonObject = new JSONObject();
+            JSONObject param = new JSONObject();
+            param.put("body", newUserName + " (NEW USER)");
+            param.put("title", "Find " + newUserName + " at map");
+            param.put("sound", "default");
+            jsonObject.put("notification", param);
+            jsonObject.put("to", deviceToken);
+            post("https://fcm.googleapis.com/fcm/send", jsonObject.toString(), new Callback() {
+                @Override
+                public void onFailure(Request request, IOException e) {
+
+                    //Something went wrong
+                    Log.d("test", "onFailure: FAILED........");
+                }
+
+                @Override
+                public void onResponse(Response response) throws IOException {
+                    if (response.isSuccessful()) {
+                        String responseStr = response.body().string();
+                        Log.d("Response", responseStr);
+                        // Do what you want to do with the response.
+                    } else {
+                        // Request not successful
+                    }
+                }
+                    }
+            );
+        } catch (JSONException ex) {
+            Log.d("Exception", "JSON exception", ex);
+        }
+    }
 }

@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion "27.0.0"
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "playlagom.producttracker"
@@ -24,11 +24,17 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'com.google.firebase:firebase-database:11.0.4'
     implementation 'com.google.firebase:firebase-auth:11.0.4'
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:27.0.0'
-    compile 'com.mcxiaoke.volley:library:1.0.18'
-    compile 'com.android.support:recyclerview-v7:27.0.0'
-    compile 'com.google.android.gms:play-services-maps:11.0.4'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:27.0.0'
+    implementation 'com.mcxiaoke.volley:library:1.0.18'
+    implementation 'com.android.support:recyclerview-v7:27.0.0'
+    implementation 'com.google.android.gms:play-services-maps:11.0.4'
+
+    //okhttp
+    implementation 'com.squareup.okhttp:okhttp:2.5.0'
+
+    // snackbar
+    implementation 'com.android.support:design:27.0.0'
     // Add to the bottom of the file
     apply plugin: 'com.google.gms.google-services'
 }
