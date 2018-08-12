@@ -7,20 +7,17 @@
     tools:context="playlagom.producttracker.SearchActivity">
 
     <SearchView
-        android:layout_marginTop="70dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/searchView"
-        android:background="@drawable/border_sorting_icons"
         android:queryHint="Type product name"
         android:iconifiedByDefault="false"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"/>
 
-    <TextView
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Search options: UNDER CONSTRUCTION\n\n1. Search history\n2. Order to \n      Amazon\n      Walmart" />
-
+    <ListView
+        android:layout_below="@+id/searchView"
+        android:id="@+id/lvSimpleList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </ListView>
 </RelativeLayout>

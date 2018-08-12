@@ -35,4 +35,6 @@
     <string name="title_activity_shop_view">Shop Details</string>
     <string name="title_activity_maps">Map</string>
     <string name="producttracker">producttracker</string>
+    <string name="search_title">Search product</string>
+    <string name="search_hint">Search product</string>
 </resources>

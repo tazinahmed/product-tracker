@@ -37,7 +37,6 @@ import java.io.IOException;
 import java.util.List;
 
 import playlagom.producttracker.auth.AuthLogin;
-import playlagom.producttracker.auth.LoginActivity;
 import playlagom.producttracker.libs.Init;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -66,7 +65,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             // to handle the case where the user grants the permission. See the documentation
             // for ActivityCompat#requestPermissions for more details.
             ActivityCompat.requestPermissions(this,
-                    new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                     PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
             return;
         }
@@ -204,7 +203,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     // to handle the case where the user grants the permission. See the documentation
                     // for ActivityCompat#requestPermissions for more details.
                     ActivityCompat.requestPermissions(this,
-                            new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
+                            new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                             PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
 
 
@@ -257,7 +256,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     // to handle the case where the user grants the permission. See the documentation
                     // for ActivityCompat#requestPermissions for more details.
                     ActivityCompat.requestPermissions(this,
-                            new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
+                            new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                             PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
 
                 }

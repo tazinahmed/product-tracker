@@ -15,14 +15,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.squareup.okhttp.Call;
-import com.squareup.okhttp.Callback;
-import com.squareup.okhttp.MediaType;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.Response;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -258,58 +250,4 @@ public class AuthSignUp extends AppCompatActivity implements View.OnClickListene
                 });
     }*/
 
-    public static final String SERVER_KEY = "AAAAzSZNbUY:APA91bE-g_vgALMF4u9mqC2rVbPVi_FkiVtXFi3SiK7ya802mWMLUkIxeatHaxTcZfBnQPacCwJUYQoRXSqA6fBF2vJ_zEsfKruxXdxnTYyuKDgB6uVteHJOumJm5-NLYUqRuyZXq4R7";
-    // src: https://stackoverflow.com/questions/39068722/post-ing-json-request-to-fcm-server-isnt-working
-    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-
-    OkHttpClient client = new OkHttpClient();
-    Call post(String url, String json, Callback callback) {
-        RequestBody body = RequestBody.create(JSON, json);
-        Request request = new Request.Builder()
-                .addHeader("Content-Type","application/json")
-                .addHeader("Authorization","key=" + SERVER_KEY)
-                .url(url)
-                .post(body)
-                .build();
-        Call call = client.newCall(request);
-        call.enqueue(callback);
-        return call;
-    }
-
-
-    private void notifyAllPushNotification(String deviceToken) {
-        Log.d(TAG, "sendOnlinePushNotification: data: " + deviceToken);
-
-        try {
-            JSONObject jsonObject = new JSONObject();
-            JSONObject param = new JSONObject();
-            param.put("body", newUserName + " (NEW USER)");
-            param.put("title", "Find " + newUserName + " at map");
-            param.put("sound", "default");
-            jsonObject.put("notification", param);
-            jsonObject.put("to", deviceToken);
-            post("https://fcm.googleapis.com/fcm/send", jsonObject.toString(), new Callback() {
-                @Override
-                public void onFailure(Request request, IOException e) {
-
-                    //Something went wrong
-                    Log.d("test", "onFailure: FAILED........");
-                }
-
-                @Override
-                public void onResponse(Response response) throws IOException {
-                    if (response.isSuccessful()) {
-                        String responseStr = response.body().string();
-                        Log.d("Response", responseStr);
-                        // Do what you want to do with the response.
-                    } else {
-                        // Request not successful
-                    }
-                }
-                    }
-            );
-        } catch (JSONException ex) {
-            Log.d("Exception", "JSON exception", ex);
-        }
-    }
 }

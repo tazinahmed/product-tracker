@@ -25,10 +25,8 @@
 
 echo
 echo [ Done ]  Initializing who am I.
-
 git config --global user.email "sakib.rahman.0000@gmail.com"
 git config --global user.name "sakib-rahman-bangladesh"
-
 
 
 ############
@@ -64,8 +62,9 @@ echo
 ## Delete file.ext
 ## Release v1.5.0
 ## Solved issues
+## Default: Commit skipped|forgotten
 
-git commit -m "Released 1.7.0, auth added by sunny"
+git commit -m "RELEASED v1.8.0: AutoComplete search suggestion added (real data)"
 
 ############
 # Step: 05 #
@@ -105,5 +104,4 @@ echo
 echo 08. Pushing local codebase to remote repo...Repo-to-repo collaboration: git push
 echo
 git push origin master
-
 git push --all -f https://github.com/sakib-rahman-bangladesh/product-tracker
