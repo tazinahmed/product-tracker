@@ -188,7 +188,7 @@ public class AuthSignUp extends AppCompatActivity implements View.OnClickListene
 
                     progressDialog.dismiss();
                     finish();
-                    startActivity(new Intent(AuthSignUp.this, AuthLogin.class));
+                    startActivity(new Intent(AuthSignUp.this, MapsActivity.class));
                 } else {
                     progressDialog.dismiss();
                     if (task.getException() instanceof FirebaseAuthUserCollisionException) {

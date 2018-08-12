@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 
 import playlagom.producttracker.auth.AuthLogin;
+import playlagom.producttracker.auth.AuthSignUp;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 } finally {
                     Log.d("MainActivity", "=== finally ====");
-                    Intent intent = new Intent(MainActivity.this, AuthLogin.class);
+                    Intent intent = new Intent(MainActivity.this, AuthSignUp.class);
                     startActivity(intent);
                     finish();
                 }

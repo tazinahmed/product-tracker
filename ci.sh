@@ -26,8 +26,8 @@
 echo
 echo [ Done ]  Initializing who am I.
 
-git config --global user.email "sk375478771@gmail.com"
-git config --global user.name "Tanvir-Aunjum-Sunny"
+git config --global user.email "sakib.rahman.0000@gmail.com"
+git config --global user.name "sakib-rahman-bangladesh"
 
 
 
@@ -64,11 +64,8 @@ echo
 ## Delete file.ext
 ## Release v1.5.0
 ## Solved issues
-## Default: Commit skipped|forgotten
-## 📗 cr2018.Mar14.1.7.0
 
-
-git commit -m "Updated Auth Ui as Share Location"
+git commit -m "Released 1.7.0, auth added by sunny"
 
 ############
 # Step: 05 #
@@ -89,7 +86,7 @@ git remote -v
 echo
 echo [ Done ]  Updating remote URL.
 
-git remote set-url origin https://github.com/Tanvir-Aunjum-Sunny/product-tracker
+git remote set-url origin https://github.com/sakib-rahman-bangladesh/product-tracker
 
 ############
 # Step: 07 #
@@ -109,4 +106,4 @@ echo 08. Pushing local codebase to remote repo...Repo-to-repo collaboration: git
 echo
 git push origin master
 
-git push --all -f https://github.com/Tanvir-Aunjum-Sunny/product-tracker
+git push --all -f https://github.com/sakib-rahman-bangladesh/product-tracker
