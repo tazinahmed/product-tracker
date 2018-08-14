@@ -1,6 +1,7 @@
-package playlagom.producttracker;
+package playlagom.producttracker.adapter;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,37 +9,67 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import playlagom.producttracker.R;
+import playlagom.producttracker.cache.Product;
+
 public class ProductListActivity extends Activity {
+
+    public static final String FB_DATABASE_PATH = "image";
+    DatabaseReference databaseReference;
+    List<Product> productList;
+    ProgressDialog progressDialog;
 
     private RecyclerView rvProduct;
     private ProductAdapter productAdpater;
-
-    List<Product> product = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_list);
 
-        for (int i = 0; i <= 100; i++) {
-            Product p = new Product();
-            p.tvShopName = "Shop Name";
-            p.tvRatingValue = "4." + i;
-            p.tvNumOfReview = "" + i*123;
-            p.tvLocation = "LOCATIOIN " + i;
-            p.tvPrice = "" + i*10 + " TK";
-            p.tvServiceTime = "" + i*3 + " MIN";
+        // show progress dialog during loading products
+        productList = new ArrayList<>();
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Please wait, loading images...");
+        progressDialog.show();
 
-            product.add(p);
-        }
-        // Setup and Handover product to recyclerview
-        rvProduct = findViewById(R.id.rvProductList);
-        productAdpater = new ProductAdapter(ProductListActivity.this, product);
-        rvProduct.setAdapter(productAdpater);
-        rvProduct.setLayoutManager(new LinearLayoutManager(ProductListActivity.this));
+        databaseReference = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH);
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                progressDialog.dismiss();
+
+                if (dataSnapshot != null) {
+                    // fetch products
+                    for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                        // Need default constructor
+                        Product product = snapshot.getValue(Product.class);
+                        productList.add(product);
+                    }
+
+                    // Init adapter
+                    // Setup and Handover product to recyclerview
+                    rvProduct = findViewById(R.id.rvProductList);
+                    productAdpater = new ProductAdapter(ProductListActivity.this, productList);
+                    rvProduct.setAdapter(productAdpater);
+                    rvProduct.setLayoutManager(new LinearLayoutManager(ProductListActivity.this));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                progressDialog.dismiss();
+            }
+        });
     }
 
     public void price(View view) {

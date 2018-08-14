@@ -13,8 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import playlagom.producttracker.adapter.ProductListActivity;
 
 /**
  * Created by User on 12/11/2017.
@@ -24,7 +23,7 @@ public class FragmentSearchResult extends Fragment
         implements View.OnClickListener{
 
     Communicator communicator;
-    TextView letMeChoice;
+    TextView letMeChoose;
     LinearLayout llPayment;
     Button btnConfirmOrder;
 
@@ -71,12 +70,11 @@ public class FragmentSearchResult extends Fragment
         // Row 2: Payment | Let me choice
         llPayment = getActivity().findViewById(R.id.llPayment);
         llPayment.setOnClickListener(this);
-        letMeChoice = getActivity().findViewById(R.id.letMeChoice);
-        letMeChoice.setOnClickListener(this);
+        letMeChoose = getActivity().findViewById(R.id.letMeChoose);
+        letMeChoose.setOnClickListener(this);
         // Row 3: Button
         btnConfirmOrder = getActivity().findViewById(R.id.btnConfirmOrder);
         btnConfirmOrder.setOnClickListener(this);
-
     }
 
     @Override
@@ -98,7 +96,7 @@ public class FragmentSearchResult extends Fragment
                 Toast.makeText(getActivity().getApplicationContext(),
                     "Payment option: UNDER CONSTRUCTION", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.letMeChoice:
+            case R.id.letMeChoose:
                 Toast.makeText(getActivity().getApplicationContext(),
                         "Manual choice options", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), ProductListActivity.class);

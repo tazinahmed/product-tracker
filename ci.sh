@@ -64,7 +64,7 @@ echo
 ## Solved issues
 ## Default: Commit skipped|forgotten
 
-git commit -m "Track changes of google-services.json"
+git commit -m "RELEASED v1.11.0, showing products posted by shops"
 
 ############
 # Step: 05 #

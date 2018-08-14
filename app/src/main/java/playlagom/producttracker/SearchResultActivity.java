@@ -51,7 +51,6 @@ public class SearchResultActivity  extends FragmentActivity implements
         mapFragment.getMapAsync(this);
 
         String queryKey = getIntent().getStringExtra("queryKey");
-
         Toast.makeText(getApplicationContext(),
                 queryKey + " ...showing by Robot", Toast.LENGTH_LONG).show();
 

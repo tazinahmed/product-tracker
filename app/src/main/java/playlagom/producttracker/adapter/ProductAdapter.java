@@ -1,5 +1,6 @@
-package playlagom.producttracker;
+package playlagom.producttracker.adapter;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -14,8 +15,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
+
 import java.util.Collections;
 import java.util.List;
+
+import playlagom.producttracker.R;
+import playlagom.producttracker.ShopViewActivity;
+import playlagom.producttracker.cache.Product;
 
 public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -45,7 +53,12 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         // Get product position of item in RecyclerView to bind productList and assign values from list
         final MyHolder myHolder = (MyHolder) holder;
         final Product product = productList.get(position);
+
         final String loc = product.tvLocation;
+//        Glide.with(context).load(product.getUrl()).into(myHolder.ivProduct);
+        // SUPPORT: https://www.youtube.com/watch?v=g-Qcb5PjsGo
+        Picasso.get().load(product.getUrl()).into(myHolder.ivProduct);
+        myHolder.tvAboutProduct.setText(product.getName());
 
         /**
          * dynamic init
@@ -112,11 +125,11 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
         // column 1
         // column 2
-        public TextView tvShopName, tvRatingValue, tvNumOfReview;
+        public TextView tvShopName, tvRatingValue, tvNumOfReview, tvAboutProduct;
 
         // column 3
         LinearLayout llTickQuantity, llEditDelete;
-        public ImageView ivTickIcon, ivEditIcon, ivDeleteIcon;
+        public ImageView ivTickIcon, ivEditIcon, ivDeleteIcon, ivProduct;
         public TextView tvQuantity;
 
         // column 4
@@ -128,11 +141,13 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
             // init xml with java
             // column 1 (Shop image)
+            ivProduct = itemView.findViewById(R.id.ivProduct);
 
             // column 2 (shop review)
             tvShopName = itemView.findViewById(R.id.tvShopName);
             tvRatingValue = itemView.findViewById(R.id.tvRatingValue);
             tvNumOfReview = itemView.findViewById(R.id.tvNumOfReview);
+            tvAboutProduct = itemView.findViewById(R.id.tvAboutProduct);
 
             // column 3 (order)
             llTickQuantity = itemView.findViewById(R.id.llTickQuantity);

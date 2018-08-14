@@ -37,4 +37,5 @@
     <string name="producttracker">producttracker</string>
     <string name="search_title">Search product</string>
     <string name="search_hint">Search product</string>
+    <string name="let_me_choose">Let me choose</string>
 </resources>
