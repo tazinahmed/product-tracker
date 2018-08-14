@@ -5,7 +5,7 @@ android {
     buildToolsVersion '27.0.3'
 
     defaultConfig {
-        applicationId "testserver.playlagom.producttracker"
+        applicationId "playlagom.producttracker"
         minSdkVersion 15
         targetSdkVersion 27
         versionCode 1100
@@ -35,7 +35,6 @@ dependencies {
 
     // snackbar
     implementation 'com.android.support:design:27.0.0'
-    // Add to the bottom of the file
-    apply plugin: 'com.google.gms.google-services'
 }
+// Add to the bottom of the file
 apply plugin: 'com.google.gms.google-services'
