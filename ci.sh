@@ -64,7 +64,7 @@ echo
 ## Solved issues
 ## Default: Commit skipped|forgotten
 
-git commit -m "RELEASED v1.9.0: snackbar added by sunny"
+git commit -m "test-server configured"
 
 ############
 # Step: 05 #
