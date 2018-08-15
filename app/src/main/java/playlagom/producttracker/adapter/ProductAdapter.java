@@ -55,9 +55,9 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         final Product product = productList.get(position);
 
         final String loc = product.tvLocation;
-//        Glide.with(context).load(product.getUrl()).into(myHolder.ivProduct);
+        Glide.with(context).load(product.getUrl()).into(myHolder.ivProduct);
         // SUPPORT: https://www.youtube.com/watch?v=g-Qcb5PjsGo
-        Picasso.get().load(product.getUrl()).into(myHolder.ivProduct);
+//        Picasso.get().load(product.getUrl()).into(myHolder.ivProduct);
         myHolder.tvAboutProduct.setText(product.getName());
 
         /**

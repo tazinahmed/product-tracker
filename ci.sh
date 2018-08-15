@@ -64,7 +64,7 @@ echo
 ## Solved issues
 ## Default: Commit skipped|forgotten
 
-git commit -m "RELEASED v1.11.0, showing products posted by shops"
+git commit -m "v1.12.0 released, popular result by real data"
 
 ############
 # Step: 05 #

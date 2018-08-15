@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +14,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import playlagom.producttracker.adapter.ProductListActivity;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by User on 12/11/2017.
@@ -42,9 +52,36 @@ public class FragmentSearchResult extends Fragment
         super.onActivityCreated(savedInstanceState);
         communicator = (Communicator) getActivity();
 
+        // debug
+        // Toast.makeText(FragmentSearchResult.this.getActivity(), SearchResultActivity.queryKey, Toast.LENGTH_SHORT).show();
+
         // Row 1: Optimistic most popular results
         // Center components
         ivProductCenter = getActivity().findViewById(R.id.ivProductCenter);
+        // connect to firebase
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(getString(R.string.searchRef));
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot != null) {
+                    for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                        String value = snapshot.child("name").getValue().toString();
+
+                        if (value.equals(SearchResultActivity.queryKey)) {
+                            Log.d(TAG, "onDataChange: inside-fragment = " + value);
+                            Glide.with(getActivity()).load(snapshot.child("url").getValue()).into(ivProductCenter);
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
         ivProductCenter.setOnClickListener(this);
 //        tvShopNameCenter = getActivity().findViewById(R.id.tvShopNameCenter);
 //        tvShopNameCenter.setOnClickListener(this);

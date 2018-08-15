@@ -145,7 +145,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         tvSearchProduct.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                Toast.makeText(getApplicationContext(), "Search product around the World!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Search product around the World!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MapsActivity.this, SearchActivity.class);
                 startActivity(intent);
                 return false;
@@ -164,7 +164,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         ivAssistant.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                Toast.makeText(getApplicationContext(), "Hey Fahad! This is your personal assistant to help you. (UNDER CONSTRUCTION)", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Hey! This is your personal assistant to help you. (UNDER CONSTRUCTION)", Toast.LENGTH_LONG).show();
                 return false;
             }
         });

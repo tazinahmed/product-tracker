@@ -65,7 +65,6 @@
 
                 <ImageView
                     android:id="@+id/ivProductCenter"
-                    android:src="@drawable/image1"
                     android:layout_width="100dp"
                     android:layout_height="100dp" />
 

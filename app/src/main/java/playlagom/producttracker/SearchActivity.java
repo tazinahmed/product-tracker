@@ -30,6 +30,8 @@ public class SearchActivity extends AppCompatActivity {
     ArrayList<String> retrieveItems = new ArrayList<>();
     private static boolean matched;
 
+    public static String searchQuery;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,14 +39,13 @@ public class SearchActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_search);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference ("products");
-        final ListView listView = (ListView) findViewById(R.id.lvSimpleList);
+        databaseReference = FirebaseDatabase.getInstance().getReference (getString(R.string.searchRef));
+        final ListView listView = findViewById(R.id.lvSimpleList);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String itemName = (String) listView.getItemAtPosition(position);
-//                Toast.makeText(getApplicationContext(), "" + itemName, Toast.LENGTH_LONG).show();
 
                 searchView.setQuery(itemName, false);
                 // START new activity
@@ -61,23 +62,23 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextSubmit(String s) {
+                searchQuery = s;
                 // customized approach
-                final Toast toast = Toast.makeText(getApplicationContext(), "Searching results for " + s, Toast.LENGTH_SHORT);
-                toast.show();
-
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        toast.cancel();
-                    }
-                }, 500);
+//                final Toast toast = Toast.makeText(getApplicationContext(), "Searching results for " + s, Toast.LENGTH_SHORT);
+//                toast.show();
+//
+//                Handler handler = new Handler();
+//                handler.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        toast.cancel();
+//                    }
+//                }, 500);
 
                 Intent intent = new Intent(SearchActivity.this, SearchResultActivity.class)
                         .putExtra("queryKey", s);
                 startActivity(intent);
                 retrieveItems.clear();
-                finish();
                 return false;
             }
 
@@ -87,7 +88,7 @@ public class SearchActivity extends AppCompatActivity {
                 // Toast.makeText(getApplicationContext(), "text change: " + s, Toast.LENGTH_SHORT).show();
 
                 // customized approach
-                final Toast toast = Toast.makeText(getApplicationContext(), queryText, Toast.LENGTH_SHORT);
+                final Toast toast = Toast.makeText(getApplicationContext(), "Searching results for " + queryText, Toast.LENGTH_SHORT);
                 toast.show();
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {

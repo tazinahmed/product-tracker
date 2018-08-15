@@ -30,6 +30,8 @@ public class SearchResultActivity  extends FragmentActivity implements
         Communicator,
         GoogleMap.OnCameraMoveListener {
 
+    public static String queryKey;
+
     private GoogleMap mMap;
     LocationManager locationManager;
     private int minTime = 1000;
@@ -50,9 +52,9 @@ public class SearchResultActivity  extends FragmentActivity implements
                 .findFragmentById(R.id.mapSearchResult);
         mapFragment.getMapAsync(this);
 
-        String queryKey = getIntent().getStringExtra("queryKey");
+        queryKey = getIntent().getStringExtra("queryKey");
         Toast.makeText(getApplicationContext(),
-                queryKey + " ...showing by Robot", Toast.LENGTH_LONG).show();
+                "Results showing by Robot", Toast.LENGTH_LONG).show();
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
