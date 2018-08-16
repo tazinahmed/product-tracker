@@ -25,8 +25,8 @@
 
 echo
 echo [ Done ]  Initializing who am I.
-git config --global user.email "sakib.rahman.0000@gmail.com"
-git config --global user.name "sakib-rahman-bangladesh"
+git config --global user.email "ahmedtazin14@gmail.com"
+git config --global user.name "tazinahmed"
 
 
 ############
@@ -64,7 +64,7 @@ echo
 ## Solved issues
 ## Default: Commit skipped|forgotten
 
-git commit -m "v1.12.0 released, popular result by real data"
+git commit -m "first commit"
 
 ############
 # Step: 05 #
@@ -85,7 +85,7 @@ git remote -v
 echo
 echo [ Done ]  Updating remote URL.
 
-git remote set-url origin https://github.com/sakib-rahman-bangladesh/product-tracker
+git remote set-url origin https://github.com/tazinahmed/product-tracker
 
 ############
 # Step: 07 #
@@ -104,4 +104,4 @@ echo
 echo 08. Pushing local codebase to remote repo...Repo-to-repo collaboration: git push
 echo
 git push origin master
-git push --all -f https://github.com/sakib-rahman-bangladesh/product-tracker
+git push --all -f https://github.com/tazinahmed/product-tracker
