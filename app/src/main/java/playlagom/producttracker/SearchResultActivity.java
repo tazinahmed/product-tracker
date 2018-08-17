@@ -10,6 +10,8 @@ import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -21,9 +23,11 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-import playlagom.producttracker.libs.Init;
+import playlagom.producttracker.adapter.HLVAdapter;
 
 public class SearchResultActivity  extends FragmentActivity implements
         OnMapReadyCallback,
@@ -41,12 +45,35 @@ public class SearchResultActivity  extends FragmentActivity implements
     double latitude = 0;
     double longitude = 0;
 
+    // horizontal-listview
+    // SUPPORT: http://androidlift.info/2016/01/14/horizontallistview-example-android/
+    ArrayList<String> alName;
+    ArrayList<Integer> alImage;
+    RecyclerView mRecyclerView;
+    RecyclerView.Adapter mAdapter;
+    RecyclerView.LayoutManager mLayoutManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //getSupportActionBar().hide();
         setContentView(R.layout.activity_search_result);
+
+        alName = new ArrayList<>(Arrays.asList("2", "1", "3", "1", "3", "4", "5", "1"));
+        alImage = new ArrayList<>(Arrays.asList(R.drawable.cheesy, R.drawable.guava_4, R.drawable.green_banana, R.drawable.red_onion, R.drawable.capsicum, R.drawable.cheesy, R.drawable.guava_4, R.drawable.green_banana));
+
+        // Calling the RecyclerView
+        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        mRecyclerView.setHasFixedSize(true);
+
+        // The number of Columns
+        mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        mAdapter = new HLVAdapter(SearchResultActivity.this, alName, alImage);
+        mRecyclerView.setAdapter(mAdapter);
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.mapSearchResult);

@@ -151,7 +151,7 @@
                     android:layout_alignBaseline="@+id/letMeChoice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="CASH"/>
+                    android:text="Card"/>
 
             </LinearLayout>
             <LinearLayout

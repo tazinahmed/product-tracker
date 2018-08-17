@@ -8,8 +8,8 @@ android {
         applicationId "testserver.playlagom.producttracker"
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 1120
-        versionName "1.12.0"
+        versionCode 1130
+        versionName "1.13.0"
     }
 
     buildTypes {

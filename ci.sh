@@ -64,7 +64,7 @@ echo
 ## Solved issues
 ## Default: Commit skipped|forgotten
 
-git commit -m "v1.12.0 released, popular result by real data"
+git commit -m "v1.13.0 released, add to cart feature added (ui)"
 
 ############
 # Step: 05 #
